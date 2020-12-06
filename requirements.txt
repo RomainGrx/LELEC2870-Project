@@ -1,5 +1,9 @@
 pip 
-torch 
+pytz
+#torch 
 numpy 
 bokeh
+jupyter
+sklearn
 matplotlib
+seaborn
