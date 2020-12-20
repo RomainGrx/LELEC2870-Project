@@ -4,8 +4,8 @@ import json2latex
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from tqdm.notebook import tqdm
 from typing import Callable
+from tqdm.notebook import tqdm
 import matplotlib.pyplot as plt
 from collections import defaultdict
 

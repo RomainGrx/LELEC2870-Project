@@ -1,9 +1,13 @@
 pip 
 pytz
-#torch 
-numpy 
+numpy
 bokeh
 jupyter
-sklearn
+#sklearn
 matplotlib
 seaborn
+tensorflow
+#json2latex
+tqdm
+send2trash
+#tikzplotlib
