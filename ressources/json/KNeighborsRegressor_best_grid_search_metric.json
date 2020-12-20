@@ -1,0 +1,22 @@
+{
+    "minkowski": {
+        "score": 0.5032721902704117,
+        "n_feature": "all_features",
+        "key": "14"
+    },
+    "euclidean": {
+        "score": 0.5032721902704117,
+        "n_feature": "all_features",
+        "key": "14"
+    },
+    "manhattan": {
+        "score": 0.509891021692168,
+        "n_feature": "all_features",
+        "key": "14"
+    },
+    "chebyshev": {
+        "score": 0.49636260095152995,
+        "n_feature": "all_features",
+        "key": "16"
+    }
+}

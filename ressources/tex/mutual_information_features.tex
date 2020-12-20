@@ -1,0 +1,39 @@
+% This file was created by tikzplotlib v0.9.6.
+\begin{tikzpicture}
+
+\begin{axis}[
+colorbar,
+colorbar style={ytick={0.2,0.4,0.6,0.8},yticklabels={0.2,0.4,0.6,0.8},ylabel={}},
+colormap={mymap}{[1pt]
+  rgb(0pt)=(0.968627450980392,0.988235294117647,0.992156862745098);
+  rgb(1pt)=(0.87843137254902,0.925490196078431,0.956862745098039);
+  rgb(2pt)=(0.749019607843137,0.827450980392157,0.901960784313726);
+  rgb(3pt)=(0.619607843137255,0.737254901960784,0.854901960784314);
+  rgb(4pt)=(0.549019607843137,0.588235294117647,0.776470588235294);
+  rgb(5pt)=(0.549019607843137,0.419607843137255,0.694117647058824);
+  rgb(6pt)=(0.533333333333333,0.254901960784314,0.615686274509804);
+  rgb(7pt)=(0.505882352941176,0.0588235294117647,0.486274509803922);
+  rgb(8pt)=(0.301960784313725,0,0.294117647058824)
+},
+point meta max=0.999737100171798,
+point meta min=4.51265573885399e-07,
+tick align=outside,
+tick pos=left,
+title={Mutual information between all features},
+x grid style={white!69.0196078431373!black},
+xmin=0, xmax=59,
+xtick style={color=black},
+xtick={0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5,11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5,21.5,22.5,23.5,24.5,25.5,26.5,27.5,28.5,29.5,30.5,31.5,32.5,33.5,34.5,35.5,36.5,37.5,38.5,39.5,40.5,41.5,42.5,43.5,44.5,45.5,46.5,47.5,48.5,49.5,50.5,51.5,52.5,53.5,54.5,55.5,56.5,57.5,58.5},
+xticklabel style = {rotate=90.0},
+xticklabels={n\_tokens\_title,n\_tokens\_content,n\_unique\_tokens,n\_non\_stop\_words,n\_non\_stop\_unique\_tokens,num\_hrefs,num\_self\_hrefs,num\_imgs,num\_videos,average\_token\_length,num\_keywords,data\_channel\_is\_lifestyle,data\_channel\_is\_entertainment,data\_channel\_is\_bus,data\_channel\_is\_socmed,data\_channel\_is\_tech,data\_channel\_is\_world,kw\_min\_min,kw\_max\_min,kw\_avg\_min,kw\_min\_max,kw\_max\_max,kw\_avg\_max,kw\_min\_avg,kw\_max\_avg,kw\_avg\_avg,self\_reference\_min\_shares,self\_reference\_max\_shares,self\_reference\_avg\_sharess,weekday\_is\_monday,weekday\_is\_tuesday,weekday\_is\_wednesday,weekday\_is\_thursday,weekday\_is\_friday,weekday\_is\_saturday,weekday\_is\_sunday,is\_weekend,LDA\_00,LDA\_01,LDA\_02,LDA\_03,LDA\_04,global\_subjectivity,global\_sentiment\_polarity,global\_rate\_positive\_words,global\_rate\_negative\_words,rate\_positive\_words,rate\_negative\_words,avg\_positive\_polarity,min\_positive\_polarity,max\_positive\_polarity,avg\_negative\_polarity,min\_negative\_polarity,max\_negative\_polarity,title\_subjectivity,title\_sentiment\_polarity,abs\_title\_subjectivity,abs\_title\_sentiment\_polarity,shares},
+y dir=reverse,
+y grid style={white!69.0196078431373!black},
+ymin=0, ymax=59,
+ytick style={color=black},
+ytick={0.5,1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5,11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5,19.5,20.5,21.5,22.5,23.5,24.5,25.5,26.5,27.5,28.5,29.5,30.5,31.5,32.5,33.5,34.5,35.5,36.5,37.5,38.5,39.5,40.5,41.5,42.5,43.5,44.5,45.5,46.5,47.5,48.5,49.5,50.5,51.5,52.5,53.5,54.5,55.5,56.5,57.5,58.5},
+yticklabels={n\_tokens\_title,n\_tokens\_content,n\_unique\_tokens,n\_non\_stop\_words,n\_non\_stop\_unique\_tokens,num\_hrefs,num\_self\_hrefs,num\_imgs,num\_videos,average\_token\_length,num\_keywords,data\_channel\_is\_lifestyle,data\_channel\_is\_entertainment,data\_channel\_is\_bus,data\_channel\_is\_socmed,data\_channel\_is\_tech,data\_channel\_is\_world,kw\_min\_min,kw\_max\_min,kw\_avg\_min,kw\_min\_max,kw\_max\_max,kw\_avg\_max,kw\_min\_avg,kw\_max\_avg,kw\_avg\_avg,self\_reference\_min\_shares,self\_reference\_max\_shares,self\_reference\_avg\_sharess,weekday\_is\_monday,weekday\_is\_tuesday,weekday\_is\_wednesday,weekday\_is\_thursday,weekday\_is\_friday,weekday\_is\_saturday,weekday\_is\_sunday,is\_weekend,LDA\_00,LDA\_01,LDA\_02,LDA\_03,LDA\_04,global\_subjectivity,global\_sentiment\_polarity,global\_rate\_positive\_words,global\_rate\_negative\_words,rate\_positive\_words,rate\_negative\_words,avg\_positive\_polarity,min\_positive\_polarity,max\_positive\_polarity,avg\_negative\_polarity,min\_negative\_polarity,max\_negative\_polarity,title\_subjectivity,title\_sentiment\_polarity,abs\_title\_subjectivity,abs\_title\_sentiment\_polarity,shares}
+]
+\addplot graphics [includegraphics cmd=\pgfimage,xmin=0, xmax=59, ymin=59, ymax=0] {mutual_information_features-000.png};
+\end{axis}
+
+\end{tikzpicture}

@@ -1,0 +1,103 @@
+% This file was created by tikzplotlib v0.9.6.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{0.913725490196078,0.529411764705882,0.407843137254902}
+\definecolor{color1}{rgb}{0.870588235294118,0.364705882352941,0.36078431372549}
+\definecolor{color2}{rgb}{0.756862745098039,0.254901960784314,0.407843137254902}
+\definecolor{color3}{rgb}{0.603921568627451,0.211764705882353,0.43921568627451}
+\definecolor{color4}{rgb}{0.447058823529412,0.172549019607843,0.431372549019608}
+
+\begin{axis}[
+legend cell align={left},
+legend style={fill opacity=0.8, draw opacity=1, text opacity=1, at={(0.97,0.03)}, anchor=south east, draw=white!80!black},
+tick align=outside,
+tick pos=left,
+title={MLP},
+x grid style={white!69.0196078431373!black},
+xlabel={neurons per layer},
+xmajorgrids,
+xmin=-0.35, xmax=7.35,
+xtick style={color=black},
+xtick={0,1,2,3,4,5,6,7},
+xtick={0,1,2,3,4,5,6,7},
+xtick={0,1,2,3,4,5,6,7},
+xtick={0,1,2,3,4,5,6,7},
+xtick={0,1,2,3,4,5,6,7},
+xtick={0,1,2,3,4,5,6,7},
+xticklabels={8,16,32,64,128,256,512,1024},
+xticklabels={8,16,32,64,128,256,512,1024},
+xticklabels={8,16,32,64,128,256,512,1024},
+xticklabels={8,16,32,64,128,256,512,1024},
+xticklabels={8,16,32,64,128,256,512,1024},
+xticklabels={8,16,32,64,128,256,512,1024},
+y grid style={white!69.0196078431373!black},
+ylabel={Regression score},
+ymajorgrids,
+ymin=-0.0265564335036653, ymax=0.557685103576971,
+ytick style={color=black},
+ytick={-0.1,0,0.1,0.2,0.3,0.4,0.5,0.6},
+yticklabels={−0.1,0.0,0.1,0.2,0.3,0.4,0.5,0.6}
+]
+\addplot [semithick, color0, opacity=0.75]
+table {%
+0 0
+1 0.478598092109929
+2 0.479451851104526
+3 0.491425734733557
+4 0.489964691927757
+5 0.487636533961231
+6 0.495904406000118
+7 0.497162726717496
+};
+\addlegendentry{all_features}
+\addplot [semithick, color1, opacity=0.75]
+table {%
+0 0.45900334990371
+1 0.463384425963021
+2 0.466941092331394
+3 0.472777884955475
+4 0.473151717404281
+5 0.480034564711076
+6 0.481190312607797
+7 0.492435633390555
+};
+\addlegendentry{5_features}
+\addplot [semithick, color2, opacity=0.75]
+table {%
+0 0
+1 0.466936990390838
+2 0.468791787928991
+3 0.474720017561604
+4 0.476181255227247
+5 0.47248973922945
+6 0.489616223957138
+7 0.48536594505869
+};
+\addlegendentry{10_features}
+\addplot [semithick, color3, opacity=0.75]
+table {%
+0 0
+1 0.470471366165241
+2 0.475489480411049
+3 0.480912674959966
+4 0.488144774858109
+5 0.479594531354491
+6 0.492562381331834
+7 0.531128670073306
+};
+\addlegendentry{15_features}
+\addplot [semithick, color4, opacity=0.75]
+table {%
+0 0.449613348549597
+1 0.473008097280878
+2 0.474470719799055
+3 0.475818351084176
+4 0.476396761970392
+5 0.473994593284021
+6 0.48995832806703
+7 0.498634487465804
+};
+\addlegendentry{20_features}
+\end{axis}
+
+\end{tikzpicture}

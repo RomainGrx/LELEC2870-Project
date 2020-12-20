@@ -3,14 +3,35 @@ import logging
 import numpy as np
 import pandas as pd
 
-import sklearn
-from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 from utils import AttributeDict, DATASETS_PATH
 
 #logging.basicConfig(level=logging.DEBUG)
+
+ALL_FEATURES = ['data_channel_is_bus', 'global_subjectivity',
+                  'data_channel_is_entertainment', 'avg_positive_polarity',
+                  'max_negative_polarity', 'data_channel_is_tech',
+                  'n_non_stop_unique_tokens', 'data_channel_is_world',
+                  'data_channel_is_lifestyle', 'abs_title_subjectivity', 'LDA_00',
+                  'rate_positive_words', 'data_channel_is_socmed',
+                  'abs_title_sentiment_polarity', 'LDA_02', 'max_positive_polarity',
+                  'LDA_01', 'LDA_04', 'weekday_is_monday',
+                  'global_sentiment_polarity', 'is_weekend', 'title_subjectivity',
+                  'average_token_length', 'n_tokens_title', 'weekday_is_thursday',
+                  'weekday_is_saturday', 'weekday_is_friday', 'num_self_hrefs',
+                  'weekday_is_tuesday', 'min_negative_polarity', 'num_imgs',
+                  'num_hrefs', 'title_sentiment_polarity', 'num_keywords',
+                  'num_videos', 'weekday_is_wednesday', 'kw_min_min', 'kw_avg_avg',
+                  'kw_avg_min', 'kw_min_avg', 'n_tokens_content', 'kw_max_avg',
+                  'kw_max_min', 'self_reference_avg_sharess',
+                  'self_reference_min_shares', 'self_reference_max_shares',
+                  'kw_min_max', 'kw_avg_max', 'kw_max_max', 'rate_negative_words',
+                  'min_positive_polarity', 'avg_negative_polarity',
+                  'global_rate_negative_words', 'global_rate_positive_words',
+                  'n_non_stop_words', 'n_unique_tokens', 'weekday_is_sunday',
+                  'LDA_03']
 
 CATEGORICAL_FEATURES = ["data_channel_is_lifestyle",
                         "data_channel_is_entertainment",
@@ -34,11 +55,11 @@ DEFAULT_HPARAMS = AttributeDict(
 
 
 def get_dataset(root:str=DATASETS_PATH, train_size:float=.8, shuffle=True, seed=None) -> AttributeDict:
-    dtype_dict = {x:'category' for x in CATEGORICAL_FEATURES}
+    dtype_dict = {x:np.float_ if x in CATEGORICAL_FEATURES else np.float_ for x in ALL_FEATURES}
     dataset = AttributeDict(
         train=AttributeDict(
             X=pd.read_csv(os.path.join(root, 'X1.csv'), dtype=dtype_dict),
-            y=pd.read_csv(os.path.join(root, 'Y1.csv'), header=None, names=["shares"])
+            y=pd.read_csv(os.path.join(root, 'Y1.csv'), header=None, dtype={"shares":np.float_}, names=["shares"])
         ),
         validation=AttributeDict(
             X=None,
@@ -48,6 +69,7 @@ def get_dataset(root:str=DATASETS_PATH, train_size:float=.8, shuffle=True, seed=
             X=pd.read_csv(os.path.join(root, 'X2.csv'), dtype=dtype_dict),
             y=None
         )
+
     )
 
     dataset.train.X, dataset.validation.X, dataset.train.y, dataset.validation.y = train_test_split(dataset.train.X, dataset.train.y, train_size=train_size, shuffle=shuffle, random_state=seed)
@@ -62,7 +84,7 @@ def dataset_to_X_y(dataset, keys, datatype="numpy"):
     for key in keys:
         X, y = dataset[key].X, dataset[key].y
         if datatype.lower() in ("np", "numpy"):
-            X, y = X.values, y.values
+            X, y = X.values, y.values.reshape(-1)
         
         out += (X,y)
 
@@ -99,11 +121,12 @@ def cutoff_outliers_hard(X, y):
     return X, y
 
 def preprocess_all(
-    dataset, 
+    ds,
     subset=None, 
     scale=True,
-    remove_outliers=True
+    remove_outliers=False
     ):
+    dataset = ds.copy()
     for key in ("train", "validation", "test"):
         if subset is not None:
             dataset[key].X = dataset[key].X[subset]
@@ -196,4 +219,12 @@ MI_FEATURES = ['self_reference_avg_sharess', 'self_reference_min_shares',
        'weekday_is_wednesday', 'weekday_is_tuesday',
        'abs_title_sentiment_polarity']
 
+#MRMR_10_FEATURES = ['kw_avg_avg', 'max_positive_polarity', 'weekday_is_wednesday', 'max_negative_polarity', 'abs_title_subjectivity', 'data_channel_is_socmed', 'self_reference_min_shares', 'rate_negative_words', 'data_channel_is_lifestyle', 'weekday_is_saturday']
+
+
+MRMR_5_FEATURES  = ['kw_avg_avg', 'max_positive_polarity', 'weekday_is_wednesday', 'max_negative_polarity', 'abs_title_subjectivity']
 MRMR_10_FEATURES = ['kw_avg_avg', 'max_positive_polarity', 'weekday_is_wednesday', 'max_negative_polarity', 'abs_title_subjectivity', 'data_channel_is_socmed', 'self_reference_min_shares', 'rate_negative_words', 'data_channel_is_lifestyle', 'weekday_is_saturday']
+MRMR_15_FEATURES = ['kw_avg_avg', 'max_positive_polarity', 'weekday_is_wednesday', 'max_negative_polarity', 'abs_title_subjectivity', 'data_channel_is_socmed', 'self_reference_min_shares', 'rate_negative_words', 'data_channel_is_lifestyle', 'weekday_is_saturday', 'LDA_01', 'num_imgs', 'weekday_is_sunday', 'num_videos', 'kw_min_max']
+MRMR_20_FEATURES = ['kw_avg_avg', 'max_positive_polarity', 'weekday_is_wednesday', 'max_negative_polarity', 'abs_title_subjectivity', 'data_channel_is_socmed', 'self_reference_min_shares', 'rate_negative_words', 'data_channel_is_lifestyle', 'weekday_is_saturday', 'LDA_01', 'num_imgs', 'weekday_is_sunday', 'num_videos', 'kw_min_max', 'kw_min_min', 'n_tokens_title', 'weekday_is_friday', 'data_channel_is_bus', 'min_positive_polarity']
+
+RUN_FEATURES = {"all_features":None, "5_features":MRMR_5_FEATURES, "10_features":MRMR_10_FEATURES, "15_features":MRMR_15_FEATURES, "20_features":MRMR_20_FEATURES}

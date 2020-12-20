@@ -1,0 +1,68 @@
+% This file was created by tikzplotlib v0.9.6.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{0.913725490196078,0.529411764705882,0.407843137254902}
+\definecolor{color1}{rgb}{0.870588235294118,0.364705882352941,0.36078431372549}
+\definecolor{color2}{rgb}{0.756862745098039,0.254901960784314,0.407843137254902}
+\definecolor{color3}{rgb}{0.603921568627451,0.211764705882353,0.43921568627451}
+\definecolor{color4}{rgb}{0.447058823529412,0.172549019607843,0.431372549019608}
+
+\begin{axis}[
+legend cell align={left},
+legend style={fill opacity=0.8, draw opacity=1, text opacity=1, draw=white!80!black},
+tick align=outside,
+tick pos=left,
+title={MLP-TEST},
+x grid style={white!69.0196078431373!black},
+xlabel={neurons per layer},
+xmajorgrids,
+xmin=-0.055, xmax=0.055,
+xtick style={color=black},
+xtick={0},
+xtick={0},
+xtick={0},
+xtick={0},
+xtick={0},
+xtick={0},
+xticklabels={512},
+xticklabels={512},
+xticklabels={512},
+xticklabels={512},
+xticklabels={512},
+xticklabels={512},
+y grid style={white!69.0196078431373!black},
+ylabel={Regression score},
+ymajorgrids,
+ymin=0.477476024540492, ymax=0.516066066994153,
+ytick style={color=black},
+ytick={0.475,0.48,0.485,0.49,0.495,0.5,0.505,0.51,0.515,0.52},
+yticklabels={0.475,0.480,0.485,0.490,0.495,0.500,0.505,0.510,0.515,0.520}
+]
+\addplot [semithick, color0, opacity=0.75]
+table {%
+0 0.485868839579339
+};
+\addlegendentry{all_features}
+\addplot [semithick, color1, opacity=0.75]
+table {%
+0 0.483219160037259
+};
+\addlegendentry{5_features}
+\addplot [semithick, color2, opacity=0.75]
+table {%
+0 0.484149697807434
+};
+\addlegendentry{10_features}
+\addplot [semithick, color3, opacity=0.75]
+table {%
+0 0.51431197415535
+};
+\addlegendentry{15_features}
+\addplot [semithick, color4, opacity=0.75]
+table {%
+0 0.479230117379295
+};
+\addlegendentry{20_features}
+\end{axis}
+
+\end{tikzpicture}
